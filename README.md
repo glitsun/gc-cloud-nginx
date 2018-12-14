@@ -42,7 +42,7 @@ git clone https://github.com/glitsun/gc-cloud-nginx.git
 ```
 Change directory to the app folder
 ```bash
-cd gc-cloud-app
+cd gc-cloud-nginx
 ```
 
 ## Usage

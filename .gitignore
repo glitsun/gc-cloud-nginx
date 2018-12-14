@@ -1,0 +1,12 @@
+.vagrant/rgloader/loader.rb
+ubuntu-xenial-16.04-cloudimg-console.log
+.vagrant/machines/ubuntu_vm/virtualbox/action_provision
+.vagrant/machines/ubuntu_vm/virtualbox/action_set_name
+.vagrant/machines/ubuntu_vm/virtualbox/box_meta
+.vagrant/machines/ubuntu_vm/virtualbox/creator_uid
+.vagrant/machines/ubuntu_vm/virtualbox/id
+.vagrant/machines/ubuntu_vm/virtualbox/index_uuid
+.vagrant/machines/ubuntu_vm/virtualbox/private_key
+.vagrant/machines/ubuntu_vm/virtualbox/synced_folders
+.vagrant/machines/ubuntu_vm/virtualbox/vagrant_cwd
+.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
