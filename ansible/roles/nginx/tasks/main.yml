@@ -1,0 +1,30 @@
+---
+- name: creates app directory
+  file:
+    path: /home/vagrant/app
+    state: directory
+
+- name: copy nginx app
+  copy:
+    src: ../app/
+    dest: /home/vagrant/app
+    owner: vagrant
+    group: vagrant
+    mode: 0644
+
+- name: copy nginx configuration
+  template: src=nginx.conf dest=/home/vagrant/app/nginx.conf
+
+- name: build nginx docker image
+  docker_image:
+    path: /home/vagrant/app
+    name: gc/nginx-web-app
+    state: present
+
+- name: start nginx docker container
+  docker_container:
+    name: nginx-web-app
+    image: gc/nginx-web-app
+    state: started
+    ports:
+    - "8082:80"

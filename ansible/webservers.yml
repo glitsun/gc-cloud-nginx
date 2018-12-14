@@ -1,0 +1,16 @@
+---
+- name: Provision nginx docker container
+  hosts: all
+  remote_user: vagrant
+  become: yes
+  become_method: sudo
+  gather_facts: False
+  
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python2.7 && apt install -y python-pip)
+      changed_when: False
+
+  roles:
+    - docker
+    - nginx
