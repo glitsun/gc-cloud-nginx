@@ -19,8 +19,13 @@ Install ``Vagrant`` from the vagrant website or use homebrew command as below
 $ brew cask install vagrant
 ```
 
+Install ``serverspec`` for testing the site
+```bash
+gem install serverspec
+serverspec-init
+```
 
-### Restart Virtual box
+
 Its better to restart the virtualbox install, as it avoids vagrant networking issues
 On MacOSX
 ```bash
@@ -48,7 +53,36 @@ To spin-up vagrant box and run the provisioner, use the following command
 ```bash
 vagrant up
 ```
-### Run only the provisioner on vagrant box
+### Test the site install
+
+Once the vagrant site is up and running to test the deployed site assuming that your in the project folder run the following command
+```bash
+TARGET_HOST=ubuntu_vm rspec
+```
+
+## Access the web-app
+After the above steps we need to invoke the following command to access the web application
+```bash
+vagrant ssh -c ifconfig | grep 'inet ' | grep -v '127.0.0.1' | grep -v '10.0' | awk '{print $2}'
+```
+The output will be similar to as follows
+```shell
+Connection to 127.0.0.1 closed.
+addr:172.17.0.1
+addr:172.28.128.11
+```
+
+Since the website is available on port 8082 we need to try access the web with the above IPs as follows
+```bash
+http://172.17.0.1:8082
+```
+or
+```bash
+http://172.28.128.11:8082
+```
+
+
+## Other handy commands
 Most of the time you don't need to restart the vagrant virtual machine. 
 As the virtual machine is already running for any app specific changes we can just rerun the 
 provisioner using vagrant hence reducing the time to launch a virtual machine
