@@ -81,6 +81,23 @@ or
 http://172.28.128.11:8082
 ```
 
+## Alternative to access the web-app
+If you feel the above bit complex then you could update Vagrantfile to specify a static IP as from
+```bash
+ubuntu_vm.vm.network "private_network", type: "dhcp"
+```
+to
+```bash
+ubuntu_vm.vm.network "private_network", ip: "192.168.50.4"
+```
+then run the following command
+```bash
+vagrant provision
+```
+After that you will be able to access the web application at 
+```bash
+http://192.168.50.4:8082
+```
 
 ## Other handy commands
 Most of the time you don't need to restart the vagrant virtual machine. 
