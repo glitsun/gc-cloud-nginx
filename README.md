@@ -22,7 +22,6 @@ $ brew cask install vagrant
 Install ``serverspec`` for testing the site
 ```bash
 gem install serverspec
-serverspec-init
 ```
 
 
